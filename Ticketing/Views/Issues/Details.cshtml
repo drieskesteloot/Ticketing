@@ -1,0 +1,106 @@
+﻿@model Ticketing.Models.Issue
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Issue</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CreationGebruiker.Voornaam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CreationGebruiker.Voornaam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gebruiker.Voornaam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gebruiker.Voornaam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PrioriteitInfo.Omschrijving)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrioriteitInfo.Omschrijving)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SolverGebruiker.Voornaam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SolverGebruiker.Voornaam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StatusInfo.Omschrijving)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StatusInfo.Omschrijving)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Onderwerp)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Onderwerp)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Omschrijving)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Omschrijving)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumAanpassing)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumAanpassing)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DatumAangemaakt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DatumAangemaakt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Teruggestuurd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Teruggestuurd)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RedenTeruggestuurd)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RedenTeruggestuurd)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
