@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewBag.Title = "MakeChart";
+}
+
+@using WebMatrix.Data;
+@{
+        var db = Database.Open("DefaultConnection");
+        var data = db.Query("SELECT Status, COUNT(Status) as statusCount FROM StatusTraces GROUP BY Status");
+        var myChart = new Chart(width: 600, height: 400)
+            .AddTitle("Status")
+            .AddSeries("Default",
+                xValue: data, xField: "Status",
+                yValues: data, yFields: "statusCount")
+            .Write();
+}

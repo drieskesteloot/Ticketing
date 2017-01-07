@@ -7,6 +7,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Collections.Generic;
 using System.Collections;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity.Infrastructure;
 
 namespace Ticketing.Models
 {
@@ -64,6 +65,10 @@ namespace Ticketing.Models
         public DbSet<PrioriteitInfo> PriorirteitInfo { get; set; }
 
         public DbSet<Issue> Issues { get; set; }
+
+        public DbSet<StatusTrace> StatusTraces { get; set; }
+
+        public DbSet<IssueTrace> IssueTraces { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

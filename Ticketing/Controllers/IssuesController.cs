@@ -10,6 +10,7 @@ using Ticketing.Models;
 using Microsoft.AspNet.Identity;
 using System.Web.Security;
 using System.Security.Claims;
+using System.Data.Entity.Infrastructure;
 
 namespace Ticketing.Controllers
 {
@@ -18,7 +19,7 @@ namespace Ticketing.Controllers
         private ApplicationDbContext db = new ApplicationDbContext();
 
         // GET: Issues
-        [Authorize]
+        
         public ActionResult Index()
         {
             var issues = db.Issues.Include(i => i.CreationGebruiker).Include(i => i.Gebruiker).Include(i => i.PrioriteitInfo).Include(i => i.SolverGebruiker).Include(i => i.StatusInfo);
@@ -41,7 +42,7 @@ namespace Ticketing.Controllers
         }
 
         // GET: Issues/Create
-        [Authorize]
+        
         public ActionResult Create()
         {
             ViewBag.CreationGebruikerId = new SelectList(db.Users, "Id", "Voornaam");
@@ -62,11 +63,41 @@ namespace Ticketing.Controllers
         {
             string currentUserId = User.Identity.GetUserId();
             ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
+            int statusId = issue.StatusInfoId;
+            StatusInfo currentStatus = db.StatusInfo.FirstOrDefault(x => x.Id == statusId);
+            int prioriteitInfoId = issue.PrioriteitInfoId;
+            PrioriteitInfo currentPrioriteit = db.PriorirteitInfo.Find(prioriteitInfoId);
             if (ModelState.IsValid)
             {
                 issue.DatumAangemaakt = DateTime.Now;
                 issue.DatumAanpassing = DateTime.Now;
                 issue.CreationGebruiker = currentUser;
+
+                db.StatusTraces.Add(new StatusTrace {
+                    LogDateTime = DateTime.Now,
+                    Issue = issue,
+                    IssueId = issue.Id.ToString(),
+                    Status = currentStatus.Omschrijving
+                });
+
+                db.IssueTraces.Add(new IssueTrace
+                {
+                    LogDateTime = DateTime.Now,
+                    ApplicationUser = issue.ApplicationUserId,
+                    CreationGebruiker = issue.CreationGebruikerId,
+                    DatumAangemaakt = issue.DatumAangemaakt,
+                    DatumAanpassing = issue.DatumAanpassing,
+                    Omschrijving = issue.Omschrijving,
+                    Onderwerp = issue.Onderwerp,
+                    Prioriteit = currentPrioriteit.Omschrijving,
+                    Status = currentStatus.Omschrijving,
+                    Teruggestuurd = issue.Teruggestuurd,
+                    RedenTeruggestuurd = issue.RedenTeruggestuurd,
+                    SolverGebruiker = issue.SolverGebruikerId,
+                    Issue = issue
+                });
+
+                
                 db.Issues.Add(issue);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -109,12 +140,50 @@ namespace Ticketing.Controllers
         {
             string currentUserId = User.Identity.GetUserId();
             ApplicationUser currentUser = db.Users.FirstOrDefault(x => x.Id == currentUserId);
+            //
+            var startingIssue = db.Issues.AsNoTracking().Where(m => m.Id == issue.Id).FirstOrDefault();
 
             if (ModelState.IsValid)
             {
                 db.Entry(issue).State = EntityState.Modified;
                 issue.DatumAanpassing = DateTime.Now;
                 //issue.SolverGebruiker = currentUser;
+                
+                StatusInfo currentStatus = db.StatusInfo.FirstOrDefault(x => x.Id == issue.StatusInfoId);
+                PrioriteitInfo currentPrioriteit = db.PriorirteitInfo.FirstOrDefault(x => x.Id == issue.PrioriteitInfoId);
+
+                if(startingIssue.PrioriteitInfoId != issue.PrioriteitInfoId || startingIssue.StatusInfoId != issue.StatusInfoId ||
+                    startingIssue.Omschrijving != issue.Omschrijving || startingIssue.RedenTeruggestuurd != issue.RedenTeruggestuurd)
+                {
+                    db.IssueTraces.Add(new IssueTrace
+                    {
+                        LogDateTime = DateTime.Now,
+                        ApplicationUser = issue.ApplicationUserId,
+                        CreationGebruiker = issue.CreationGebruikerId,
+                        DatumAangemaakt = issue.DatumAangemaakt,
+                        DatumAanpassing = issue.DatumAanpassing,
+                        Omschrijving = issue.Omschrijving,
+                        Onderwerp = issue.Onderwerp,
+                        Prioriteit = currentPrioriteit.Omschrijving,
+                        Status = currentStatus.Omschrijving,
+                        Teruggestuurd = issue.Teruggestuurd,
+                        RedenTeruggestuurd = issue.RedenTeruggestuurd,
+                        SolverGebruiker = issue.SolverGebruikerId,
+                        Issue = issue
+                    });
+                }
+
+                if (startingIssue.StatusInfoId != issue.StatusInfoId)
+                {
+                    db.StatusTraces.Add(new StatusTrace
+                    {
+                        LogDateTime = DateTime.Now,
+                        Issue = issue,
+                        IssueId = issue.Id.ToString(),
+                        Status = currentStatus.Omschrijving
+                    });
+                }
+
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
@@ -152,6 +221,8 @@ namespace Ticketing.Controllers
             return RedirectToAction("Index");
         }
 
+
+
         protected override void Dispose(bool disposing)
         {
             if (disposing)
@@ -160,5 +231,7 @@ namespace Ticketing.Controllers
             }
             base.Dispose(disposing);
         }
+
+        
     }
 }

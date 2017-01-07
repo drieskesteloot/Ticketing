@@ -1,0 +1,119 @@
+﻿@model IEnumerable<Ticketing.Models.IssueTrace>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+@using (Html.BeginForm())
+{
+    <p>
+        Find by name: @Html.TextBox("SearchString")
+        <text>Dropdown</text> @Html.DropDownList("SearchStatus", new SelectList(ViewBag.StatusInfo))
+        <input type="submit" value="Search" />
+    </p>
+}
+@using (Html.BeginForm("ExportData", "IssueTraces" , FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <table>
+        <tr><td></td><td><input type="submit" name="Export" id="Export" value="Export" /></td></tr>
+    </table>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.ActionLink(TicketingUI.IssueDateCreated, "Index", new { sortOrder = ViewBag.DateSortParm })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Onderwerp)
+        </th>
+        <th>
+            @Html.ActionLink(TicketingUI.IssueStatus, "Index", new { sortOrder = ViewBag.NameSortParm })
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Omschrijving)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Prioriteit)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatumAangemaakt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DatumAanpassing)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Teruggestuurd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RedenTeruggestuurd)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ApplicationUser)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CreationGebruiker)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SolverGebruiker)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.LogDateTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Onderwerp)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Omschrijving)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Prioriteit)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DatumAangemaakt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DatumAanpassing)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Teruggestuurd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RedenTeruggestuurd)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ApplicationUser)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CreationGebruiker)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SolverGebruiker)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+<img src="@Url.Action("MakeChart")" alt="error" />
+
+
+

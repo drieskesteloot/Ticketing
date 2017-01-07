@@ -44,6 +44,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AjaxControlToolkit, Version=16.1.1.0, Culture=neutral, PublicKeyToken=28f01b0e84b6d53e, processorArchitecture=MSIL">
+      <HintPath>..\packages\AjaxControlToolkit.16.1.1.0\lib\net40\AjaxControlToolkit.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.85.0.0, Culture=neutral, PublicKeyToken=fd1eb21b62ae805b, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.85.0\lib\net40\ClosedXML.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.5.5631.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.5\lib\DocumentFormat.OpenXml.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
       <Private>True</Private>
@@ -138,6 +150,10 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WebMatrix.Data, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.Data.2.0.20710.0\lib\net40\WebMatrix.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -198,6 +214,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IssuesController.cs" />
+    <Compile Include="Controllers\IssueTracesController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -286,15 +303,38 @@
     <Compile Include="Migrations\201701021253582_issue aangepast.Designer.cs">
       <DependentUpon>201701021253582_issue aangepast.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201701031426086_StatusTrace.cs" />
+    <Compile Include="Migrations\201701031426086_StatusTrace.Designer.cs">
+      <DependentUpon>201701031426086_StatusTrace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701031443000_StatusTrace 2.cs" />
+    <Compile Include="Migrations\201701031443000_StatusTrace 2.Designer.cs">
+      <DependentUpon>201701031443000_StatusTrace 2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701041120071_IssueTrace.cs" />
+    <Compile Include="Migrations\201701041120071_IssueTrace.Designer.cs">
+      <DependentUpon>201701041120071_IssueTrace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201701061316286_rating in issue.cs" />
+    <Compile Include="Migrations\201701061316286_rating in issue.Designer.cs">
+      <DependentUpon>201701061316286_rating in issue.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\Issue.cs" />
+    <Compile Include="Models\IssueTrace.cs" />
     <Compile Include="Models\LogInfo.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\PrioriteitInfo.cs" />
     <Compile Include="Models\StatusInfo.cs" />
+    <Compile Include="Models\StatusTrace.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\TicketingUI.nl.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TicketingUI.nl.resx</DependentUpon>
+    </Compile>
     <Compile Include="Startup.cs" />
     <Compile Include="Resources\TicketingUI.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -367,6 +407,12 @@
     <Content Include="Views\Issues\Details.cshtml" />
     <Content Include="Views\Issues\Edit.cshtml" />
     <Content Include="Views\Issues\Index.cshtml" />
+    <Content Include="Views\IssueTraces\Create.cshtml" />
+    <Content Include="Views\IssueTraces\Delete.cshtml" />
+    <Content Include="Views\IssueTraces\Details.cshtml" />
+    <Content Include="Views\IssueTraces\Edit.cshtml" />
+    <Content Include="Views\IssueTraces\Index.cshtml" />
+    <Content Include="Views\Shared\_MakeChart.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -443,7 +489,22 @@
     <EmbeddedResource Include="Migrations\201701021253582_issue aangepast.resx">
       <DependentUpon>201701021253582_issue aangepast.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Resources\TicketingUI.nl.resx" />
+    <EmbeddedResource Include="Migrations\201701031426086_StatusTrace.resx">
+      <DependentUpon>201701031426086_StatusTrace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701031443000_StatusTrace 2.resx">
+      <DependentUpon>201701031443000_StatusTrace 2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701041120071_IssueTrace.resx">
+      <DependentUpon>201701041120071_IssueTrace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201701061316286_rating in issue.resx">
+      <DependentUpon>201701061316286_rating in issue.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\TicketingUI.nl.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TicketingUI.nl.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Resources\TicketingUI.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>TicketingUI.Designer.cs</LastGenOutput>

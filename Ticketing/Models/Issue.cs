@@ -60,6 +60,12 @@ namespace Ticketing.Models
         [ForeignKey("SolverGebruikerId")]
         [Display(Name = "IssueSolver", ResourceType = typeof(Resources.TicketingUI))]
         public ApplicationUser SolverGebruiker { get; set; }
-       
+
+        public int Rating { get; set; }
+
+        public ICollection<StatusTrace> StatusTraces { get; set; }
+
+        public ICollection<IssueTrace> IssueTraces { get; set; }
+
     }
 }

@@ -184,7 +184,7 @@
     <value>Bent u zeker dat u het Ticket wilt verwijderen?</value>
   </data>
   <data name="Edit" xml:space="preserve">
-    <value>Bewerk</value>
+    <value>Bewerken</value>
   </data>
   <data name="IssueBackToList" xml:space="preserve">
     <value>Terug naar Ticket lijst</value>

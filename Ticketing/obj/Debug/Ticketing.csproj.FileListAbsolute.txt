@@ -77,7 +77,6 @@ C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\bin\Microsoft.Owin.Security
 C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
-C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.csprojResolveAssemblyReference.cache
 C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.dll
 C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.pdb
 C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.Migrations.Initialize.resources
@@ -396,3 +395,30 @@ C:\Users\u0109585\Desktop\Visual\Ticketing2 - kopie\Ticketing\obj\Debug\Ticketin
 C:\Users\u0109585\Desktop\Visual\Ticketing2 - kopie\Ticketing\obj\Debug\Ticketing.csprojResolveAssemblyReference.cache
 C:\Users\u0109585\Desktop\Visual\Ticketing2 - kopie\Ticketing\obj\Debug\Ticketing.Migrations.tel.resources
 C:\Users\u0109585\Desktop\Visual\Ticketing2 - kopie\Ticketing\obj\Debug\Ticketing.Migrations.issueaangepast.resources
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\bin\nl\Ticketing.resources.dll
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.Migrations.c.resources
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.Migrations.c1.resources
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.Migrations.d.resources
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.Migrations.r.resources
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.Migrations.t.resources
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.Migrations.cd.resources
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.Migrations.i.resources
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.Migrations.iop.resources
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.Migrations.gsm.resources
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.Migrations.tel.resources
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.Migrations.issueaangepast.resources
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.Resources.TicketingUI.resources
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.Resources.TicketingUI.nl.resources
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\nl\Ticketing.resources.dll
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.Migrations.StatusTrace.resources
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.Migrations.StatusTrace2.resources
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.csprojResolveAssemblyReference.cache
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.Migrations.IssueTrace.resources
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\bin\ClosedXML.dll
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\bin\DocumentFormat.OpenXml.dll
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\bin\ClosedXML.pdb
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\bin\ClosedXML.xml
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\bin\WebMatrix.Data.dll
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\bin\WebMatrix.Data.xml
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\bin\AjaxControlToolkit.dll
+C:\Users\u0109585\Desktop\Visual\Ticketing\Ticketing\obj\Debug\Ticketing.Migrations.ratinginissue.resources
